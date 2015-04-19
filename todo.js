@@ -59,13 +59,14 @@
 			 	
 			 	
 				localStorage.setItem('todoitem' , JSON.stringify(datas));
+				datas.length =0 ;
  
 			 }
 			 else
 			 {
 			 	error = 'Empty Item couldnot be included';
 			 }
-			 controller.init();
+			 controller.renderView();
 
 		},
 
@@ -115,6 +116,11 @@
 			return todo_model.storageLen();
 		},
 
+		renderView : function()
+		{
+			view.renderView();
+		},
+
 		init : function(){
 			view.init();
 			todo_model.init();
@@ -130,6 +136,8 @@
 			document.getElementById('submit').addEventListener('click',function(){
 				var todoVal = document.getElementById('todo').value;
 				controller.addNew(todoVal);
+				document.getElementById('todo').value = '';
+
 			});
 			this.renderView();
 		},
@@ -142,10 +150,7 @@
 			  	   	controller.getList().forEach(function(todoitem){
 					 	 html += '<li>'+todoitem.item+'<br>'+todoitem.date+'</li>';
 					});
- 					//listhis = JSON.parse(controller.getList());
- 					//for(todoitem in listhis){
-					//	 html += '<li>'+listhis[todoitem] +'</li>';
-					//};
+ 					
 					display.innerHTML =  html;
 			    }
 				
