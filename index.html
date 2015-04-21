@@ -7,7 +7,31 @@
 		
 
 	</head>
-	<body>
+	<style>
+	.relativeClass{
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hoverlist {
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+	}
+
+	.relativeClass:hover .hoverlist {
+	    display: block;
+	    top: 0;
+	    width: 100%;
+	    left: 0;
+	}
+	.strike{
+		text-decoration: line-through;
+		color:red;
+	}
+	</style>
+	<body style="overflow-x:hidden">
 
 	<div class="row">
 		<div class="col-md-12">
@@ -23,14 +47,14 @@
 	<div class="row">
 		<div class="col-md-12">
 		 	<div class="container">
-		 		<ul id ="listview">
+		 		<ul id ="listview" class="list-group">
 		 		</ul>
 		 	</div>
 		</div>
 	</div>
 
-		<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="todo.js"></script>
 		<script> window.onload = controller.init();</script>
 	</body>
